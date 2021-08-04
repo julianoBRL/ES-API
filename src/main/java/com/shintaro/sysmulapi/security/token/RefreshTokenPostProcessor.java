@@ -1,4 +1,4 @@
-package com.shintaro.sysmulapi.token;
+package com.shintaro.sysmulapi.security.token;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

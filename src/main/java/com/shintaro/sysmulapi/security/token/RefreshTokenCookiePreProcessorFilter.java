@@ -1,4 +1,4 @@
-package com.shintaro.sysmulapi.token;
+package com.shintaro.sysmulapi.security.token;
 
 import java.io.IOException;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.shintaro.sysmulapi.config;
+package com.shintaro.sysmulapi.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

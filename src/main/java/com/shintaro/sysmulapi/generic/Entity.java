@@ -9,6 +9,8 @@ import javax.persistence.MappedSuperclass;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @MappedSuperclass
 public class Entity {
 
@@ -19,6 +21,7 @@ public class Entity {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
 	@Type(type="org.hibernate.type.UUIDCharType")
+	@ApiModelProperty(name = "Nome", notes = "Unique identifier")
     public UUID id;
 
 }

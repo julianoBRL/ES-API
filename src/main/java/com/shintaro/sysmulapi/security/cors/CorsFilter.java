@@ -1,4 +1,4 @@
-package com.shintaro.sysmulapi.cors;
+package com.shintaro.sysmulapi.security.cors;
 
 import java.io.IOException;
 

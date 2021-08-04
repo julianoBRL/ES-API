@@ -1,4 +1,4 @@
-package com.shintaro.sysmulapi.utils;
+package com.shintaro.sysmulapi.security.utils;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

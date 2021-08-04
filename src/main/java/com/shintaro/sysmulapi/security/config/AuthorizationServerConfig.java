@@ -1,4 +1,4 @@
-package com.shintaro.sysmulapi.config;
+package com.shintaro.sysmulapi.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -41,7 +41,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Bean
 	public JwtAccessTokenConverter accessTokenConverter() {
 		JwtAccessTokenConverter accessTokenConverter = new JwtAccessTokenConverter();
-		accessTokenConverter.setSigningKey("algaworks");
+		accessTokenConverter.setSigningKey("MuLSyS");
 		return accessTokenConverter;
 	}
 

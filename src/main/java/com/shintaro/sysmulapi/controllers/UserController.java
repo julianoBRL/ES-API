@@ -14,8 +14,11 @@ import com.shintaro.sysmulapi.entitys.user.UserRepository;
 import com.shintaro.sysmulapi.entitys.user.UserService;
 import com.shintaro.sysmulapi.generic.Controller;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping("/user")
+@Api(tags = "User",description = " ")
 public class UserController implements Controller<UserEntity,UserRepository,UserService> {
 	
 	private final UserService userService;
@@ -26,13 +29,13 @@ public class UserController implements Controller<UserEntity,UserRepository,User
 	}
 
 	@Override
-	public UserService getSetvice() {
+	public UserService getService() {
 		return userService;
 	}
 	
 	@Override
 	@PostMapping
-	public ResponseEntity<?> save(@RequestBody UserEntity body){
+	public ResponseEntity<?> register(@RequestBody UserEntity body){
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		body.setPassword(encoder.encode(body.getPassword()));
 		return ResponseEntity.status(HttpStatus.OK).body(userService.save(body));

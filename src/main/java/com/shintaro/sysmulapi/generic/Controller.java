@@ -15,21 +15,21 @@ public interface Controller<
 	service extends Service<entity,repository>
 > {
 
-	service getSetvice();
+	service getService();
 	
 	@GetMapping
-	default ResponseEntity<?> listAll() {
-		return ResponseEntity.status(HttpStatus.OK).body(getSetvice().list());
+	default ResponseEntity<?> getAll() {
+		return ResponseEntity.status(HttpStatus.OK).body(getService().list());
 	}
 	
 	@GetMapping("/{id}")
 	default ResponseEntity<?> getByID(@PathVariable("id") UUID ID) throws Exception {
-		return ResponseEntity.status(HttpStatus.OK).body(getSetvice().getByID(ID));
+		return ResponseEntity.status(HttpStatus.OK).body(getService().getByID(ID));
 	}
 	
 	@PostMapping
-	default ResponseEntity<?> save(@RequestBody entity model){
-		return ResponseEntity.status(HttpStatus.OK).body(getSetvice().save(model));
+	default ResponseEntity<?> register(@RequestBody entity model){
+		return ResponseEntity.status(HttpStatus.OK).body(getService().save(model));
 	}
 
 }

@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.shintaro.sysmulapi.generic.Service;
 
 @org.springframework.stereotype.Service
-public class UserService extends Service<UserEntity, UserRepository>  implements UserDetailsService {
+public class UserService extends Service<UserEntity, UserRepository> implements UserDetailsService {
 	
 	@Autowired
 	private UserRepository repository;
