@@ -1,4 +1,4 @@
-package com.shintaro.genericAPI;
+package com.shintaro.sysmulapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

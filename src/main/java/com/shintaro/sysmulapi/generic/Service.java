@@ -1,4 +1,4 @@
-package com.shintaro.genericAPI.generic;
+package com.shintaro.sysmulapi.generic;
 
 import java.util.List;
 import java.util.UUID;

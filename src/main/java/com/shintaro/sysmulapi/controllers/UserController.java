@@ -1,4 +1,4 @@
-package com.shintaro.genericAPI.controllers;
+package com.shintaro.sysmulapi.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shintaro.genericAPI.entitys.user.UserEntity;
-import com.shintaro.genericAPI.entitys.user.UserRepository;
-import com.shintaro.genericAPI.entitys.user.UserService;
-import com.shintaro.genericAPI.generic.Controller;
+import com.shintaro.sysmulapi.entitys.user.UserEntity;
+import com.shintaro.sysmulapi.entitys.user.UserRepository;
+import com.shintaro.sysmulapi.entitys.user.UserService;
+import com.shintaro.sysmulapi.generic.Controller;
 
 @RestController
 @RequestMapping("/user")

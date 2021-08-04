@@ -1,8 +1,8 @@
-package com.shintaro.genericAPI.entitys.user;
+package com.shintaro.sysmulapi.entitys.user;
 
 import java.util.Optional;
 
-import com.shintaro.genericAPI.generic.Repository;
+import com.shintaro.sysmulapi.generic.Repository;
 
 @org.springframework.stereotype.Repository
 public interface UserRepository extends Repository<UserEntity> {

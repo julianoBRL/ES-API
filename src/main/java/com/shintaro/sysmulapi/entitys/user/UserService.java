@@ -1,4 +1,4 @@
-package com.shintaro.genericAPI.entitys.user;
+package com.shintaro.sysmulapi.entitys.user;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.shintaro.genericAPI.generic.Service;
+import com.shintaro.sysmulapi.generic.Service;
 
 @org.springframework.stereotype.Service
 public class UserService extends Service<UserEntity, UserRepository>  implements UserDetailsService {

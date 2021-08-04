@@ -1,4 +1,4 @@
-package com.shintaro.genericAPI.entitys.user;
+package com.shintaro.sysmulapi.entitys.user;
 
 public enum UserType {
 	DEFAULT("default"),

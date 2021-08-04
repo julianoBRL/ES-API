@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.shintaro</groupId>
-	<artifactId>genericAPI</artifactId>
+	<artifactId>SysMulaAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>shintaro</name>
