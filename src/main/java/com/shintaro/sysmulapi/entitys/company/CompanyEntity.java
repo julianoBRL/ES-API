@@ -6,9 +6,6 @@ import javax.validation.constraints.NotNull;
 import com.shintaro.sysmulapi.generic.Entity;
 
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
