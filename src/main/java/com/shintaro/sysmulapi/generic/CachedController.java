@@ -1,5 +1,6 @@
 package com.shintaro.sysmulapi.generic;
 
+import java.lang.reflect.Field;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -24,28 +25,55 @@ public interface CachedController<
 	
 	@GetMapping
 	default ResponseEntity<?> getAll() {
-		return ResponseEntity.status(HttpStatus.OK).body(getService().list());
+		verifyCache();
+		return ResponseEntity.status(HttpStatus.OK).body(getSingletron().getCache());
 	}
 	
 	@GetMapping("/{id}")
 	default ResponseEntity<?> getByID(@PathVariable("id") UUID ID) throws Exception {
-		return ResponseEntity.status(HttpStatus.OK).body(getService().getByID(ID));
+		verifyCache();
+		return ResponseEntity.status(HttpStatus.OK).body(getSingletron().getCache().stream().filter(data -> {
+			try {
+				Field idField = data.getClass().getSuperclass().getDeclaredField("id");
+				idField.setAccessible(true);
+				return idField.get(data).equals(ID);
+			} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
+				e.printStackTrace();
+			}
+			return false;
+		}));
 	}
 	
 	@PostMapping
 	default ResponseEntity<?> register(@RequestBody entity model){
+		updateCache();
 		return ResponseEntity.status(HttpStatus.OK).body(getService().save(model));
 	}
 	
 	@DeleteMapping("/{id}")
-	@ResponseStatus(code = HttpStatus.OK)
-	default void delete(@PathVariable("id") UUID ID){
+	default ResponseEntity<?> delete(@PathVariable("id") UUID ID){
+		updateCache();
 		getService().delete(ID);
+		return ResponseEntity.status(HttpStatus.OK).body(getSingletron().getCache());
 	}
 	
 	@PatchMapping("/{id}")
 	default ResponseEntity<?> edit(@PathVariable("id") UUID ID, @RequestBody entity model){
+		updateCache();
 		return ResponseEntity.status(HttpStatus.OK).body(getService().edit(ID,model));
+	}
+	
+	default void updateCache() {
+		if(getSingletron().getCache().isEmpty()) {
+			verifyCache();
+		}
+		getSingletron().setCache(getService().list());
+	}
+	
+	default void verifyCache() {
+		if(getSingletron().getCache().isEmpty()) {
+			getSingletron().setCache(getService().list());
+		}
 	}
 
 }
