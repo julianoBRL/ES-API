@@ -10,7 +10,6 @@ import com.shintaro.sysmulapi.entitys.company.CompanyService;
 import com.shintaro.sysmulapi.generic.Controller;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/company")
