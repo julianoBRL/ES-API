@@ -12,13 +12,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-public interface Controller<
+public interface CachedController<
 	entity extends Object,
 	repository extends Repository<entity>,
-	service extends Service<entity,repository>
+	service extends Service<entity,repository>,
+	singletron extends Singletron<entity>
 > {
-
+	
 	service getService();
+	singletron getSingletron();
 	
 	@GetMapping
 	default ResponseEntity<?> getAll() {
