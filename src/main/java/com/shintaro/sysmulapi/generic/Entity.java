@@ -10,6 +10,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 @MappedSuperclass
 public class Entity {
@@ -22,6 +24,8 @@ public class Entity {
     )
 	@Type(type="org.hibernate.type.UUIDCharType")
 	@ApiModelProperty(name = "Nome", notes = "Unique identifier")
+	@Getter
+	@Setter
     public UUID id;
 
 }
