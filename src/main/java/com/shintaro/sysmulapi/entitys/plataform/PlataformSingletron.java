@@ -1,24 +1,8 @@
 package com.shintaro.sysmulapi.entitys.plataform;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.stereotype.Service;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.shintaro.sysmulapi.generic.Singletron;
 
-public class PlataformSingletron {
-	
-		private static PlataformSingletron singletron;
-		
-		@Getter
-		@Setter
-		private List<PlataformEntity> cache = new ArrayList<>();
-		
-		public static PlataformSingletron getInstance() {
-			if(singletron == null) {
-				singletron = new PlataformSingletron();
-			}
-			return singletron;
-		}
-
-}
+@Service
+public class PlataformSingletron extends Singletron<PlataformEntity> {}
