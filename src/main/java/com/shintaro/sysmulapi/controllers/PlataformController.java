@@ -12,46 +12,45 @@ import com.shintaro.sysmulapi.entitys.plataform.PlataformEntity;
 import com.shintaro.sysmulapi.entitys.plataform.PlataformRepository;
 import com.shintaro.sysmulapi.entitys.plataform.PlataformService;
 import com.shintaro.sysmulapi.entitys.plataform.PlataformSingletron;
-import com.shintaro.sysmulapi.generic.Controller;
+import com.shintaro.sysmulapi.generic.CachedController;
 
 import io.swagger.annotations.Api;
 
 @RestController
 @RequestMapping("/plataform")
 @Api(tags = "Plataform",description = " ")
-public class PlataformController implements Controller<PlataformEntity,PlataformRepository,PlataformService>{
+public class PlataformController implements CachedController<PlataformEntity,PlataformRepository,PlataformService,PlataformSingletron>{
 	
-	public final PlataformService service;
+	private final PlataformService service;
+	private final PlataformSingletron singletron;
 	
 	@Autowired
-	public PlataformController(PlataformService service) {
+	public PlataformController(PlataformService service, PlataformSingletron singletron) {
 		this.service = service;
+		this.singletron = singletron;
 	}
 
 	@Override
 	public PlataformService getService() {
 		return service;
 	}
-	
+
 	@Override
-	@GetMapping
-	public ResponseEntity<?> getAll() {
-		
-		if(PlataformSingletron.getInstance().getCache().isEmpty()) {
-			PlataformSingletron.getInstance().setCache(getService().list());
-			return ResponseEntity.status(HttpStatus.OK).body("funfou");
-		}
-		
-		return ResponseEntity.status(HttpStatus.OK).body(PlataformSingletron.getInstance().getCache());
-		
+	public PlataformSingletron getSingletron() {
+		return singletron;
 	}
 	
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity<?> getByName(@PathVariable String nome) {
 		
+		if(getSingletron().getCache().isEmpty()) {
+			getSingletron().setCache(getService().list());
+			return ResponseEntity.status(HttpStatus.OK).body("funfou");
+		}
+		
 		return ResponseEntity.status(HttpStatus.OK).body(
-				PlataformSingletron.getInstance().getCache()
-				.stream().filter(c -> c.getName().equals(nome))
+				getSingletron().getCache()
+				.stream().filter(plataform -> plataform.getName().equals(nome))
 		);
 		
 	}
