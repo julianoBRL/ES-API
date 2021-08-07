@@ -1,5 +1,10 @@
 package com.shintaro.sysmulapi.generic;
 
+/*
+ * By: Juliano Lira(ShintaroBRL) 
+ * 
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +25,11 @@ public class Singletron<T extends Object> {
 			singletron = new Singletron<T>();
 		}
 		return singletron;
+	}
+	
+	public List<T> clearCache() {
+		cache = new ArrayList<>();
+		return cache;
 	}
 
 }

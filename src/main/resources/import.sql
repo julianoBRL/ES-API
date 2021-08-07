@@ -33,9 +33,9 @@ insert into company values("b2dec266-f53a-11eb-9bd5-025076325304","microsoft@gma
  * 
  * ######################################
  */
-insert into plataform values("b117ac91-f53c-11eb-9bd5-025076325304","nintendo 3DS","3DS");
+insert into plataform values("b117ac91-f53c-11eb-9bd5-025076325304","nintendo 3DS","2DS");
 insert into plataform values("b114ee1e-f53c-11eb-9bd5-025076325304","nintendo 2DS","2DS");
-insert into plataform values("b115be28-f53c-11eb-9bd5-025076325304","Playstation 1","PS1");
+insert into plataform values("b115be28-f53c-11eb-9bd5-025076325304","Atari800","PS1");
 insert into plataform values("b1171a48-f53c-11eb-9bd5-025076325304","Atari800","Atari800");
 
 

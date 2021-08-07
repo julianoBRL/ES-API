@@ -1,5 +1,10 @@
 package com.shintaro.sysmulapi.generic;
 
+/*
+ * By: Juliano Lira(ShintaroBRL) 
+ * 
+ */
+
 import java.util.UUID;
 
 import javax.persistence.GeneratedValue;
